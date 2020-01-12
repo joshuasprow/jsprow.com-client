@@ -5,14 +5,11 @@ const Page = lazy(() => import("./Page"));
 
 const About: FC = () => {
   const [count, setCount] = useState(0);
+  const suffix = `${count ? count / 2 : count}s`;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCount(prev => {
-        const next = prev + 1;
-        console.log([prev, next]);
-        return next;
-      });
+      setCount(prev => prev + 1);
     }, 2000);
 
     return () => {
@@ -22,7 +19,7 @@ const About: FC = () => {
 
   return (
     <>
-      <HelmetTitle page="About" suffix={count} />
+      <HelmetTitle page="About" suffix={suffix} />
       <Page className="about-page">
         <article>
           <p>This is a PWA!</p>
