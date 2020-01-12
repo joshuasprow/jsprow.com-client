@@ -1,7 +1,15 @@
-import React from "react";
+import React, { FC, lazy } from "react";
 
-const Home: React.FC = () => {
-  return <h1>Welcome to jsprow.com!</h1>;
+const Page = lazy(() => import("./Page"));
+
+const Home: FC = () => {
+  return (
+    <Page className="home-page">
+      <article>
+        <p>Welcome to jsprow.com!</p>
+      </article>
+    </Page>
+  );
 };
 
 export default Home;
