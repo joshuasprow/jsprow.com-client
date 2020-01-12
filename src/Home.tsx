@@ -1,14 +1,23 @@
-import React, { FC, lazy } from "react";
+import React, { FC, lazy, useState } from "react";
 
+const HelmetTitle = lazy(() => import("./HelmetTitle"));
 const Page = lazy(() => import("./Page"));
 
 const Home: FC = () => {
+  const [alert, setAlert] = useState<undefined | string>(undefined);
+
+  const handleAlertButton = () => setAlert("🔥🔥 PANIC 🔥🔥");
+
   return (
-    <Page className="home-page">
-      <article>
-        <p>Welcome to jsprow.com!</p>
-      </article>
-    </Page>
+    <>
+      <HelmetTitle alert={alert} page="Home" />
+      <Page className="home-page">
+        <article>
+          <p>Welcome to jsprow.com!</p>
+          <button onClick={handleAlertButton}>PANIC</button>
+        </article>
+      </Page>
+    </>
   );
 };
 

@@ -1,3 +1,22 @@
+## How It Works
+
+- create-react-app
+  - React
+    - Hooks
+    - React Router
+    - lazy-loading
+    - Suspense
+  - TypeScript
+  - Jest
+  - PWA
+- GitHub
+- Yarn
+- Google Cloud Platform
+  - Cloud Build deploys any push to `master` branch
+    - ...after running tests, of course
+  - Static files hosted in Storage bucket
+  - CDN through Cloudflare provides SSL
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

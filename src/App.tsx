@@ -20,12 +20,8 @@ const App: FC = () => {
       </nav>
       <Suspense fallback={"Loading..."}>
         <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route component={About} path="/about" />
+          <Route component={Home} path="/" />
         </Switch>
       </Suspense>
     </Router>
