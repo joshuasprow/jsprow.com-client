@@ -5,7 +5,7 @@ const Page = lazy(() => import("./Page"));
 
 const About: FC = () => {
   const [count, setCount] = useState(0);
-  const suffix = `${count}s`;
+  const suffix = `${count * 2}s`;
 
   useEffect(() => {
     const interval = setInterval(() => {
