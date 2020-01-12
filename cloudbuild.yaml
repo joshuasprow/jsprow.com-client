@@ -3,5 +3,7 @@ steps:
     args: ["install"]
   - name: "gcr.io/cloud-builders/yarn"
     args: ["test"]
+  - name: "gcr.io/cloud-builders/yarn"
+    args: ["build"]
   - name: gcr.io/cloud-builders/gsutil
     args: ["-m", "rsync", "-r", "-c", "-d", "./build", "gs://www.jsprow.com"]
