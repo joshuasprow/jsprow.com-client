@@ -1,23 +1,21 @@
-import React, { FC, lazy } from "react";
+import React, { lazy } from "react";
 import { useLocation } from "react-router-dom";
 import makePageClassName from "./lib/make-page-class-name";
 
 const HelmetTitle = lazy(() => import("./HelmetTitle"));
 
-const About: FC = () => {
+export default () => {
   const location = useLocation();
   const className = makePageClassName(location.pathname);
 
   return (
     <>
-      <HelmetTitle page="About" />
+      <HelmetTitle page="Bird Conversation" />
       <main className={className}>
         <article>
-          <p>This is a PWA!</p>
+          <button>Bird Sound!</button>
         </article>
       </main>
     </>
   );
 };
-
-export default About;

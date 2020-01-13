@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import { css, Global, jsx } from "@emotion/core";
-import { createContext, FC, useState } from "react";
+import { createContext, FC, useState, useEffect } from "react";
 
 const darkTheme: Theme = {
   background: "#444",
@@ -35,6 +35,12 @@ const ThemeProvider: FC = ({ children, ...props }) => {
   const onSetTheme = (name: ThemeName) => {
     setTheme(() => (name === "dark" ? darkTheme : lightTheme));
   };
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)")) {
+      onSetTheme("dark");
+    }
+  }, []);
 
   return (
     <ThemeContext.Provider {...props} value={[theme, onSetTheme]}>
