@@ -1,17 +1,17 @@
 /** @jsx jsx */
 
 import { css, Global, jsx } from "@emotion/core";
-import { createContext, FC, useState, useEffect } from "react";
+import { createContext, FC, useEffect, useState } from "react";
 
 const darkTheme: Theme = {
   background: "#444",
-  colors: { link: "rgb(33, 145, 251)", primary: "#fff" },
+  colors: { link: "rgb(33, 145, 251)", text: "#fff" },
   themeName: "dark"
 };
 
 const lightTheme: Theme = {
   background: "#fff",
-  colors: { link: "rgb(22, 96, 167)", primary: "#444" },
+  colors: { link: "rgb(33, 145, 251)", text: "#444" },
   themeName: "light"
 };
 
@@ -26,7 +26,7 @@ const ThemeProvider: FC = ({ children, ...props }) => {
   const globalStyles = css`
     body {
       background: ${theme.background};
-      color: ${theme.colors.primary};
+      color: ${theme.colors.text};
     }
 
     a {
@@ -55,13 +55,13 @@ const ThemeProvider: FC = ({ children, ...props }) => {
 export default { Context: ThemeContext, Provider: ThemeProvider };
 
 interface Colors {
-  [color: string]: string;
   link: string;
+  text: string;
 }
 
-type ThemeName = "dark" | "light";
+export type ThemeName = "dark" | "light";
 
-interface Theme {
+export interface Theme {
   background: string;
   colors: Colors;
   themeName: ThemeName;
