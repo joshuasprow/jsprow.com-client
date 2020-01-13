@@ -1,34 +1,20 @@
 import React, { FC, lazy, Suspense } from "react";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import ThemeContext from "./ThemeContext";
+import Nav from "./components/Nav";
+import ThemeContext from "./context/ThemeContext";
 
-const About = lazy(() => import("./About"));
-const Home = lazy(() => import("./Home"));
-const ThemeSwitch = lazy(() => import("./ThemeSwitch"));
+const BirdConversation = lazy(() => import("./pages/BirdConversation"));
+const Home = lazy(() => import("./pages/Home"));
 
 const App: FC = () => {
   return (
     <ThemeContext.Provider>
       <Router>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Suspense fallback={"Loading..."}>
-                <ThemeSwitch />
-              </Suspense>
-            </li>
-          </ul>
-        </nav>
+        <Nav />
         <Suspense fallback={"Loading..."}>
           <Switch>
-            <Route component={About} path="/about" />
+            <Route component={BirdConversation} path="/bird-conversation" />
             <Route component={Home} path="/" />
           </Switch>
         </Suspense>

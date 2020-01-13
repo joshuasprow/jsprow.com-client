@@ -1,21 +1,23 @@
 /** @jsx jsx */
 
 import { css, Global, jsx } from "@emotion/core";
-import { createContext, FC, useState } from "react";
+import { createContext, FC, useState, useEffect } from "react";
 
 const darkTheme: Theme = {
   background: "#444",
-  colors: { link: "rgb(33, 145, 251)", primary: "#fff" }
+  colors: { link: "rgb(33, 145, 251)", primary: "#fff" },
+  themeName: "dark"
 };
 
 const lightTheme: Theme = {
   background: "#fff",
-  colors: { link: "rgb(22, 96, 167)", primary: "#444" }
+  colors: { link: "rgb(22, 96, 167)", primary: "#444" },
+  themeName: "light"
 };
 
 const ThemeContext = createContext<[Theme, (name: ThemeName) => void]>([
   lightTheme,
-  () => lightTheme
+  () => {}
 ]);
 
 const ThemeProvider: FC = ({ children, ...props }) => {
@@ -36,6 +38,12 @@ const ThemeProvider: FC = ({ children, ...props }) => {
     setTheme(() => (name === "dark" ? darkTheme : lightTheme));
   };
 
+  useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)")) {
+      onSetTheme("dark");
+    }
+  }, []);
+
   return (
     <ThemeContext.Provider {...props} value={[theme, onSetTheme]}>
       <Global styles={globalStyles} />
@@ -53,7 +61,8 @@ interface Colors {
 
 type ThemeName = "dark" | "light";
 
-export interface Theme {
+interface Theme {
   background: string;
   colors: Colors;
+  themeName: ThemeName;
 }
