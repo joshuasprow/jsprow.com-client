@@ -11,7 +11,7 @@ const Home: FC = () => {
   return (
     <>
       <HelmetTitle alert={alert} page="Home" />
-      <Page className="home-page">
+      <Page>
         <article>
           <p>Welcome to jsprow.com!</p>
           <button onClick={handleAlertButton}>PANIC</button>
