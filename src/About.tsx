@@ -1,17 +1,19 @@
 import React, { FC, lazy } from "react";
+import makePageClassName from "./lib/make-page-class-name";
 
 const HelmetTitle = lazy(() => import("./HelmetTitle"));
-const Page = lazy(() => import("./Page"));
 
 const About: FC = () => {
+  const className = makePageClassName(location.pathname);
+
   return (
     <>
       <HelmetTitle page="About" />
-      <Page>
+      <main className={className}>
         <article>
           <p>This is a PWA!</p>
         </article>
-      </Page>
+      </main>
     </>
   );
 };
