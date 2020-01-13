@@ -1,11 +1,12 @@
 import React, { FC, lazy, useState } from "react";
-import { RouteComponentProps } from "react-router-dom";
+import { RouteComponentProps, useLocation } from "react-router-dom";
 import makeClassName from "./lib/make-page-class-name";
 
 const HelmetTitle = lazy(() => import("./HelmetTitle"));
 
 const Home: FC<RouteComponentProps> = () => {
   const [alert, setAlert] = useState<undefined | string>(undefined);
+  const location = useLocation();
   const className = makeClassName(location.pathname);
 
   const handleAlertButton = () => setAlert("🔥🔥 PANIC 🔥🔥");

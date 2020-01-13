@@ -1,9 +1,11 @@
 import React, { FC, lazy } from "react";
+import { useLocation } from "react-router-dom";
 import makePageClassName from "./lib/make-page-class-name";
 
 const HelmetTitle = lazy(() => import("./HelmetTitle"));
 
 const About: FC = () => {
+  const location = useLocation();
   const className = makePageClassName(location.pathname);
 
   return (
