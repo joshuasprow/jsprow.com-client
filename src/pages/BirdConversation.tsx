@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import makePageClassName from "../lib/make-page-class-name";
 
 const HelmetTitle = lazy(() => import("../components/HelmetTitle"));
+const NamePicker = lazy(() => import("../components/NamePicker"));
 
 export default () => {
   const location = useLocation();
@@ -12,9 +13,8 @@ export default () => {
     <>
       <HelmetTitle page="Bird Conversation" />
       <main className={className}>
-        <article>
-          <button>Bird Sound!</button>
-        </article>
+        <NamePicker />
+        <button>Bird Sound!</button>
       </main>
     </>
   );

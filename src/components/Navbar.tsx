@@ -4,7 +4,6 @@ import { css, jsx } from "@emotion/core";
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
 import useTheme from "../hooks/use-theme";
-import PanicButton from "./PanicButton";
 import ThemeSwitch from "./ThemeSwitch";
 
 const Nav: FC = props => {
@@ -104,9 +103,6 @@ const Navbar: FC = () => {
         </Li>
         <Li>
           <ThemeSwitch />
-        </Li>
-        <Li>
-          <PanicButton />
         </Li>
       </Ul>
     </Nav>

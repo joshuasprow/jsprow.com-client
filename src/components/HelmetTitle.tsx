@@ -1,14 +1,13 @@
 import React, { FC } from "react";
 import { Helmet } from "react-helmet-async";
 
-const HelmetTitle: FC<HelmetTitleProps> = ({ alert, page, suffix }) => {
-  const title = alert || `jsprow.com - ${page}${suffix ? ` (${suffix})` : ""}`;
+const makeTitle = ({ alert, page, suffix }: HelmetTitleProps) =>
+  alert || `jsprow.com - ${page}${suffix ? ` (${suffix})` : ""}`;
 
-  return (
-    <Helmet>
-      <title>{title}</title>
-    </Helmet>
-  );
+const HelmetTitle: FC<HelmetTitleProps> = props => {
+  const title = makeTitle(props);
+
+  return <Helmet title={title} />;
 };
 
 export default HelmetTitle;
