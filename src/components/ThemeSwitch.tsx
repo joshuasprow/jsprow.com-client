@@ -32,7 +32,7 @@ const ThemeSwitchButton: FC<{
       <span
         aria-label={themeName}
         css={css`
-          background: ${isSelected ? theme.colors.link : "inherit"};
+          background: ${isSelected ? theme.colors.primary : "inherit"};
           border-radius: 0.5rem;
           cursor: pointer;
           padding: 0.25rem;
@@ -46,7 +46,7 @@ const ThemeSwitchButton: FC<{
               bottom: 0;
               left: 0;
               content: "";
-              background: ${theme.colors.link};
+              background: ${theme.colors.primary};
               border-radius: 0.5rem;
               opacity: 0.5;
               z-index: -1;
@@ -73,6 +73,13 @@ const ThemeSwitchButton: FC<{
 const ThemeSwitch: FC = () => {
   return (
     <div>
+      <span
+        css={css`
+          margin-right: 0.5rem;
+        `}
+      >
+        theme:
+      </span>
       <ThemeSwitchButton label="😎" themeName="light" />
       <ThemeSwitchButton label="😈" themeName="dark" />
     </div>

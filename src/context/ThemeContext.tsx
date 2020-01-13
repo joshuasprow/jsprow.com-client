@@ -5,22 +5,22 @@ import { createContext, FC, useEffect, useState } from "react";
 
 const darkTheme: Theme = {
   background: "#444",
-  colors: { link: "rgb(33, 145, 251)", text: "#fff" },
+  colors: { primary: "rgb(33, 145, 251)", text: "#fff" },
   themeName: "dark"
 };
 
 const lightTheme: Theme = {
   background: "#fff",
-  colors: { link: "rgb(33, 145, 251)", text: "#444" },
+  colors: { primary: "rgb(33, 145, 251)", text: "#444" },
   themeName: "light"
 };
 
-const ThemeContext = createContext<[Theme, (name: ThemeName) => void]>([
+const Context = createContext<[Theme, (name: ThemeName) => void]>([
   lightTheme,
   () => {}
 ]);
 
-const ThemeProvider: FC = ({ children, ...props }) => {
+const Provider: FC = ({ children, ...props }) => {
   const [theme, setTheme] = useState(lightTheme);
 
   const globalStyles = css`
@@ -30,7 +30,7 @@ const ThemeProvider: FC = ({ children, ...props }) => {
     }
 
     a {
-      color: ${theme.colors.link};
+      color: ${theme.colors.primary};
     }
   `;
 
@@ -45,17 +45,17 @@ const ThemeProvider: FC = ({ children, ...props }) => {
   }, []);
 
   return (
-    <ThemeContext.Provider {...props} value={[theme, onSetTheme]}>
+    <Context.Provider {...props} value={[theme, onSetTheme]}>
       <Global styles={globalStyles} />
       {children}
-    </ThemeContext.Provider>
+    </Context.Provider>
   );
 };
 
-export default { Context: ThemeContext, Provider: ThemeProvider };
+export default { Context, Provider };
 
 interface Colors {
-  link: string;
+  primary: string;
   text: string;
 }
 

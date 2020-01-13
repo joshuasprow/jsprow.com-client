@@ -47,7 +47,7 @@ const A: FC = ({ children }) => (
   </a>
 );
 
-const GitHubCorners: FC = () => {
+const GitHubCorner: FC = () => {
   const [theme] = useTheme();
 
   return (
@@ -83,4 +83,4 @@ const GitHubCorners: FC = () => {
   );
 };
 
-export default GitHubCorners;
+export default GitHubCorner;

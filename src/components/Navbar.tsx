@@ -26,6 +26,7 @@ const Nav: FC = props => {
           content: "";
           background: ${theme.colors.text};
           opacity: 0.2;
+          z-index: -1;
         }
       `}
     />
@@ -74,7 +75,7 @@ const Link: FC<{ to: string }> = ({ to, ...props }) => {
             bottom: 0;
             left: 0;
             content: "";
-            background: ${theme.colors.link};
+            background: ${theme.colors.primary};
             border-radius: 0.5rem;
             opacity: 0.5;
             z-index: -1;
@@ -82,7 +83,7 @@ const Link: FC<{ to: string }> = ({ to, ...props }) => {
         }
 
         &.active {
-          background: ${theme.colors.link};
+          background: ${theme.colors.primary};
         }
       `}
       exact
