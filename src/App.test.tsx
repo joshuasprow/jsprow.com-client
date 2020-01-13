@@ -8,7 +8,7 @@ test("renders home page link", () => {
   expect(homeLinkEl).toBeInTheDocument();
 });
 
-test("renders about page link", () => {
+test("renders bird conversation page link", () => {
   const { getByText } = render(<App />);
   const birdConversationLinkEl = getByText(/bird conversation/i);
   expect(birdConversationLinkEl).toBeInTheDocument();
