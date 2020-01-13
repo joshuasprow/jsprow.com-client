@@ -10,6 +10,6 @@ test("renders home page link", () => {
 
 test("renders about page link", () => {
   const { getByText } = render(<App />);
-  const aboutLinkEl = getByText(/about/i);
-  expect(aboutLinkEl).toBeInTheDocument();
+  const birdConversationLinkEl = getByText(/bird conversation/i);
+  expect(birdConversationLinkEl).toBeInTheDocument();
 });

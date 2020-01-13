@@ -2,12 +2,10 @@
 
 import { jsx } from "@emotion/core";
 import { FC, InputHTMLAttributes } from "react";
-import useTheme from "./use-theme";
-
-type ChangeHandler = InputHTMLAttributes<HTMLInputElement>["onChange"];
+import useTheme from "../hooks/use-theme";
 
 const ThemeSwitch: FC = () => {
-  const [, setTheme] = useTheme();
+  const [theme, setTheme] = useTheme();
 
   const handleDarkChange: ChangeHandler = event => {
     const value = event.currentTarget.value;
@@ -29,7 +27,7 @@ const ThemeSwitch: FC = () => {
       <div>
         <label>light</label>
         <input
-          defaultChecked
+          defaultChecked={theme.themeName === "light"}
           name="theme"
           onChange={handleLightChange}
           type="radio"
@@ -39,6 +37,7 @@ const ThemeSwitch: FC = () => {
       <div>
         <label>dark</label>
         <input
+          defaultChecked={theme.themeName === "dark"}
           name="theme"
           onChange={handleDarkChange}
           type="radio"
@@ -50,3 +49,5 @@ const ThemeSwitch: FC = () => {
 };
 
 export default ThemeSwitch;
+
+type ChangeHandler = InputHTMLAttributes<HTMLInputElement>["onChange"];

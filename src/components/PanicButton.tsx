@@ -1,9 +1,9 @@
-import React, { lazy, useState } from "react";
-
-const HelmetTitle = lazy(() => import("./HelmetTitle"));
+import React, { useState } from "react";
+import HelmetTitle from "./HelmetTitle";
 
 const PanicButton = () => {
   const [alert, setAlert] = useState<undefined | string>(undefined);
+
   const handleAlertButton = () => setAlert("🔥🔥 PANIC 🔥🔥");
 
   return (

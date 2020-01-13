@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { RouteComponentProps, useLocation } from "react-router-dom";
-import makeClassName from "./lib/make-page-class-name";
+import makeClassName from "../lib/make-page-class-name";
 
 const Home: FC<RouteComponentProps> = () => {
   const location = useLocation();
