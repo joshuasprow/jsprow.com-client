@@ -10,7 +10,7 @@ const ThemeSwitchButton: FC<{
   themeName: ThemeName;
 }> = ({ label, themeName }) => {
   const [theme, setTheme] = useTheme();
-  const isSelected = theme.themeName === themeName;
+  const isSelected = theme.currentTheme === themeName;
 
   const handleChange: ChangeHandler = event => {
     const value = event.currentTarget.value;
@@ -35,7 +35,6 @@ const ThemeSwitchButton: FC<{
           background: ${isSelected ? theme.colors.primary : "inherit"};
           border-radius: 0.5rem;
           cursor: pointer;
-          padding: 0.25rem;
           position: relative;
 
           &:hover {

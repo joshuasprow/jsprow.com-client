@@ -5,14 +5,16 @@ import { createContext, FC, useEffect, useState } from "react";
 
 const darkTheme: Theme = {
   background: "#444",
-  colors: { primary: "rgb(33, 145, 251)", text: "#fff" },
-  themeName: "dark"
+  backgroundSecondary: "#222",
+  colors: { primary: "rgb(33, 145, 251)", text: "#fff", textSecondary: "#ddd" },
+  currentTheme: "dark"
 };
 
 const lightTheme: Theme = {
-  background: "#fff",
-  colors: { primary: "rgb(33, 145, 251)", text: "#444" },
-  themeName: "light"
+  background: "#eee",
+  backgroundSecondary: "#fff",
+  colors: { primary: "rgb(33, 145, 251)", text: "#444", textSecondary: "#222" },
+  currentTheme: "light"
 };
 
 const Context = createContext<[Theme, (name: ThemeName) => void]>([
@@ -57,12 +59,14 @@ export default { Context, Provider };
 interface Colors {
   primary: string;
   text: string;
+  textSecondary: string;
 }
 
 export type ThemeName = "dark" | "light";
 
 export interface Theme {
   background: string;
+  backgroundSecondary: string;
   colors: Colors;
-  themeName: ThemeName;
+  currentTheme: ThemeName;
 }
