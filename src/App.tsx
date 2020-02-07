@@ -8,6 +8,7 @@ import ThemeContext from "./context/ThemeContext";
 
 const BirdConversation = lazy(() => import("./pages/BirdConversation"));
 const Home = lazy(() => import("./pages/Home"));
+const TimerTower = lazy(() => import("./pages/TimerTower"));
 
 const App: FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: FC = () => {
           <Suspense fallback={"Loading..."}>
             <Switch>
               <Route component={BirdConversation} path="/bird-conversation" />
+              <Route component={TimerTower} path="/timer-tower" />
               <Route component={Home} path="/" />
             </Switch>
           </Suspense>

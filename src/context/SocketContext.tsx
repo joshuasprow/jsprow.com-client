@@ -7,9 +7,11 @@ const Context = createContext<SocketIOClient.Socket>(socket);
 
 const Provider: FC = props => {
   useEffect(() => {
-    socket.on("connected", (socketId: string) => {
-      console.log("socketId:", socketId);
-    });
+    socket.on(
+      "user joined",
+      (response: { username: string; numUsers: number }) =>
+        console.log(response)
+    );
   }, []);
 
   return <Context.Provider {...props} value={socket} />;

@@ -110,6 +110,9 @@ const Navbar: FC = () => {
           <Link to="/bird-conversation">Bird Conversation</Link>
         </Li>
         <Li>
+          <Link to="/timer-tower">Timer Tower</Link>
+        </Li>
+        <Li>
           <ThemeSwitch />
         </Li>
       </Ul>
