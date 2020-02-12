@@ -90,6 +90,13 @@ const TimerTower: FC = () => {
 
   const percentFilled = elapsed / end;
 
+  const handleInputBlur = () => {
+    /* Ensures that the elapsed time is never larger than the end time */
+    if (elapsed > end) {
+      setElapsed(end);
+    }
+  };
+
   const handleInputChange: InputHTMLAttributes<
     HTMLInputElement
   >["onChange"] = event => {
@@ -178,6 +185,7 @@ const TimerTower: FC = () => {
             width: 24px;
           `}
           disabled={!!timer}
+          onBlur={handleInputBlur}
           onChange={handleInputChange}
           onClick={handleInputClick}
           type="text"
@@ -194,6 +202,7 @@ const TimerTower: FC = () => {
       <Button disabled={percentFilled === 0} onClick={reset}>
         reset
       </Button>
+      <audio ref={mummySoundRef} src="./mummy-voice.mp3" />
     </div>
   );
 };
